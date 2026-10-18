@@ -71,6 +71,77 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-智能体场景设计书" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/10/18/%E6%99%BA%E8%83%BD%E4%BD%93%E5%9C%BA%E6%99%AF%E8%AE%BE%E8%AE%A1%E4%B9%A6/" class="article-date">
+  <time class="dt-published" datetime="2026-10-17T16:00:00.000Z" itemprop="datePublished">2026-10-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/10/18/%E6%99%BA%E8%83%BD%E4%BD%93%E5%9C%BA%E6%99%AF%E8%AE%BE%E8%AE%A1%E4%B9%A6/">智能体场景设计书</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="智能体场景设计书"><a href="#智能体场景设计书" class="headerlink" title="智能体场景设计书"></a>智能体场景设计书</h1><h2 id="图书馆「一句话预约」：让连小理从”能答”走到”能办”"><a href="#图书馆「一句话预约」：让连小理从”能答”走到”能办”" class="headerlink" title="图书馆「一句话预约」：让连小理从”能答”走到”能办”"></a>图书馆「一句话预约」：让连小理从”能答”走到”能办”</h2><h3 id="一、场景名称与适用对象"><a href="#一、场景名称与适用对象" class="headerlink" title="一、场景名称与适用对象"></a>一、场景名称与适用对象</h3><p><strong>场景名称</strong>：图书馆座位与借阅「一句话预约」</p>
+<p><strong>适用对象</strong>：在校学生为主用户（多在课间、路上使用，30 秒内要结果），教师为次用户；不覆盖馆员后台与校外访客。</p>
+<p><strong>触发情境</strong>：课间想占个自习位、考试周抢座、写课程论文要借参考书、临时想知道某本书在哪个馆。</p>
+<p><strong>核心任务</strong>：把用户一句口语，转成一次「参数已填好、只差确认」的预约动作。待学校开放接口授权后，可进一步做到用户在对话中确认即完成预约。</p>
+<h3 id="二、真实需求与现存痛点"><a href="#二、真实需求与现存痛点" class="headerlink" title="二、真实需求与现存痛点"></a>二、真实需求与现存痛点</h3><p>连小理已经能回答”图书馆几点开门””座位怎么预约”这类问题。但回答完之后，用户仍要自己走完：打开 App → 找到入口 → 搜索 → 在结果里辨认版本 → 看馆藏状态 → 进预约页 → 逐项填参数 → 提交。</p>
+<p><strong>答案与动作之间，还隔着六七步。</strong></p>
+<p>具体有三处痛点：</p>
+<p><strong>一是入口频繁转换痛点。</strong> 用户已经清楚自己要什么，却要在另一个应用里把这件事重新”再说一遍”。</p>
+<p><strong>二是辨认繁琐度痛点。</strong> 在已有的i大工app内，搜索一本书籍往往会弹出多个版本与卷次，可借数量各不相同，很难判断该借哪一本；并且，同一本书在两个馆的可借数也不一样。</p>
+<p><strong>三是功能缺失痛点。</strong> 我校座位预约在「虚拟智慧图书馆」的三维场景里完成——<strong>没有搜索框，即使存在筛选器，也需要用户自行滑动转动视角、逐个点开座位</strong>，虽然也存在自主选座功能，却依然存在无法筛选、步骤较多等使用体验上的问题。</p>
+<p><strong>依据说明</strong>：以上来自我们自己的使用经历与身边同学的普遍反馈（课间在教学楼走廊临时找座、期末周反复刷三维场景）。</p>
+<p>我们真正需要的，正是<strong>把连小理已有的理解能力，接到既有系统已有的执行能力上</strong>。</p>
+<h3 id="三、希望实现的功能能力"><a href="#三、希望实现的功能能力" class="headerlink" title="三、希望实现的功能能力"></a>三、希望实现的功能能力</h3><p><strong>性质判定：这份Skill是对现有场景进行的优化改进，而非新场景拓展。</strong></p>
+<p>毫无疑问，目前连小理已具备对话理解与知识问答能力，而学校 App 已具备完整的借阅与选座业务。本方案没有新建系统，而只需要在两者之间补一层「翻译与预填」。</p>
+<p><strong>四项核心能力</strong>：</p>
+<p>（1）<strong>意图解析</strong>。从用户口语中抽出书名或作者，或抽出日期、时段、时长与偏好（靠窗、电源、安静、楼层）。抽不到的槽位留空并追问，<strong>绝不猜测或者编造</strong>。</p>
+<p>（2）<strong>确定性匹配</strong>。馆藏按「可借优先 → 版次新 → 复本多」排序；座位先按硬条件（日期、时段、可用状态）收窄，再按偏好加权排序，同一句话问两遍，结果必须完全一致。</p>
+<p>（3）<strong>参数预填卡片</strong>。输出六字段借阅卡或七字段座位卡，包含馆藏地、索书号、取书地、时段，以及 App 内的四步操作路径。待接口授权后，连小理可在用户确认后直接完成预约。</p>
+<p>（4）<strong>如实降级</strong>。没有完全符合条件的座位时，按「放宽静音 → 逐个放宽偏好 → 放宽区域」逐级回退，每条都标注改了什么、能换来多少选择；不硬凑，也不编造一个看起来合理的座位号——<strong>宁可说”没有”，也不给一个错的位置。</strong></p>
+<p><strong>设计目标</strong>：轻适配接入、结果可解释、用途可衍生。<br><strong>应用价值</strong>：把连小理从”信息入口”升级为”事务入口”——让师生感受到智能体在日常生活运用中的便利之处。</p>
+<h3 id="四、使用流程示意"><a href="#四、使用流程示意" class="headerlink" title="四、使用流程示意"></a>四、使用流程示意</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">用户：明天下午两点到五点，找个能插电的安静座位</span><br><span class="line">  │</span><br><span class="line">  ├─ ① 发起需求 ── 连小理对话入口，不必先打开 App</span><br><span class="line">  │</span><br><span class="line">  ├─ ② 提供信息 ── 槽位齐全则不追问；出现缺日期或时长的情况时</span><br><span class="line">  │                提问补全；说&quot;随便&quot;走默认值并声明</span><br><span class="line">  │</span><br><span class="line">  ├─ ③ 智能体处理 ── 模型解析意图 → 脚本做硬条件过滤与加权排序</span><br><span class="line">  │                → 拼装参数载荷（三段固定结构交接）</span><br><span class="line">  │</span><br><span class="line">  ├─ ④ 结果反馈 ── 候选卡片：区域、座位号、属性三态、时段、</span><br><span class="line">  │                排序依据（同分就如实说&quot;条件相同，按楼层与座位号排&quot;）</span><br><span class="line">  │</span><br><span class="line">  └─ ⑤ 用户确认 ── 跳转 App 对应页面（参数已预填），或给出四步指令卡；</span><br><span class="line">                   最后一下由用户本人点击</span><br></pre></td></tr></table></figure>
+
+<p>两个关键设计：</p>
+<p><strong>其一，③ 这一环模型只负责”听懂”和”说人话”</strong>，所有过滤与排序交给确定性代码。理由是”可复现”——同一句话问两遍，排序不能变，否则用户无法信任，也无法向他人复述。</p>
+<p><strong>其二，⑤ 是硬边界。</strong> 技能不代提交、不轮询抢座、不留存学号与密码。所有输出停在”待你确认”，最终操作与实名认证仍由用户本人在 App 内完成，充分保证了智能体运用的安全性，极力避免用户隐私泄露等安全问题。<strong>“代用户确认”与”用户自己确认”是两个性质完全不同的事</strong>，这条界线在获得学校授权之前不会越过。</p>
+<h3 id="五、预期效果"><a href="#五、预期效果" class="headerlink" title="五、预期效果"></a>五、预期效果</h3><p><strong>对用户</strong>：把”找入口、翻列表、辨版本、填参数”压缩为”说一句 + 点一下”。找座位从”在三维场景里转视角逐个点”，变成”直接告诉我去几楼几号、为什么是它”。</p>
+<p><strong>对连小理</strong>：补齐”能答不能办”的短板。用户不必在”问完”与”做完”之间切换应用，对话入口第一次形成闭环；同时因为输出可解释、边界清晰，也降低了助手的信任风险。</p>
+<p><strong>对学校</strong>：不新增采购、不改动业务系统，用存量资产完成体验升级。三维选座界面无法搜索是结构性问题，本方案用「语义搜索 + 参数预填」绕过它，极力压缩改造成本，甚至可以延伸运用到食堂、体育场馆、实验室等同类预约场景。</p>
+<p><strong>诚实边界</strong>：一期使用人工采样的样例数据，卡片上标注采集时间；不承诺实时空座；不提供自动抢座。我们宁可说”这个时段确实没有”，也不编一个看起来合理的座位号——<strong>这是场景能否长期被信任的前提。</strong></p>
+<h3 id="六、后续优化措施"><a href="#六、后续优化措施" class="headerlink" title="六、后续优化措施"></a>六、后续优化措施</h3><ol>
+<li><strong>数据与权限接入</strong>：目前技能的数据皆为样本，仅供项目演示。后续落地需要学校提供真实数据与 i大工 的接口权限，把连小理与 App 真正打通。</li>
+<li><strong>多场馆支持</strong>：图书馆的座位预约目前只覆盖一个场馆，拿到真实信息后可扩展为多场馆分化。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/10/18/%E6%99%BA%E8%83%BD%E4%BD%93%E5%9C%BA%E6%99%AF%E8%AE%BE%E8%AE%A1%E4%B9%A6/" data-id="cuid0_4neSRP-_Mm6ryChIg-i" data-title="智能体场景设计书" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-我的第一篇博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/10/17/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="article-date">
@@ -100,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/10/17/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="cuidQNtObRBeAcf4zjTbRzYo6" data-title="我的第一篇博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/10/17/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="cuidUe5ubTF_ydyEwG8FUAP48" data-title="我的第一篇博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -153,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/10/17/hello-world/" data-id="cuidhyDa9dRQQgHGyl-5Tco_E" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2026/10/17/hello-world/" data-id="cuidm3qqjMmb7tYTB4u5gHtzM" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -208,6 +279,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2026/10/18/%E6%99%BA%E8%83%BD%E4%BD%93%E5%9C%BA%E6%99%AF%E8%AE%BE%E8%AE%A1%E4%B9%A6/">智能体场景设计书</a>
+          </li>
         
           <li>
             <a href="/2026/10/17/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
